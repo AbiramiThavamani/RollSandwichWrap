@@ -1,4 +1,4 @@
 package com.pluralsight;
 
-public class Chips extends OrderScreen {
+public class Chips extends Order {
 }

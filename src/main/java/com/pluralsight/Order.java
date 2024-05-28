@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,13 +9,15 @@ public class Order {
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chips;
+    //private List<OrderItem> items;
+
 
     public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
+      //  items = new ArrayList<>();
     }
-
 
     public List<Sandwich> getSandwiches() {
         return sandwiches;
@@ -108,15 +111,15 @@ public class Order {
         // prompt the user for toppings
         System.out.println("Select Toppings: \n" + ",");
         System.out.println("-----VEGETABLE------\n");
-        System.out.println("-lettuce\n" +
-                           "-peppers\n" +
-                           "-onions\n" +
-                           "-tomatoes\n" +
-                           "-jalepenos\n" +
-                           "-cucumber\n" +
-                           "-pickles\n" +
-                           "-guacamole\n" +
-                           "-mushrooms\n");
+        System.out.println(" -lettuce\n" +
+                           " -peppers\n" +
+                           " -onions\n" +
+                           " -tomatoes\n" +
+                           " -jalepenos\n" +
+                           " -cucumber\n" +
+                           " -pickles\n" +
+                           " -guacamole\n" +
+                           " -mushrooms\n");
 
         System.out.println("------MEAT------\n");
         System.out.println("-steak\n" +
@@ -168,6 +171,7 @@ public class Order {
         System.out.println("\nDo you want to add sides? (yes/no): ");
         String addSidesChoice = scanner.nextLine();
         boolean addSides = addSidesChoice.equalsIgnoreCase("yes");
+
 
 
 

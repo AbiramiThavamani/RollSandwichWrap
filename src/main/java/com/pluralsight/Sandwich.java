@@ -97,6 +97,8 @@ public class Sandwich {
             details.append("-").append(sauce.getName()).append("\n");
         }
 
-
+        details.append("Toasted:").append(toasted ? "yes" : "no").append("\n");
+        return details.toString();
     }
+
 }

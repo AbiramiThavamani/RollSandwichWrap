@@ -1,4 +1,4 @@
 package com.pluralsight.interfaces;
 
-public class Sauces {
+public class Sauce {
 }

@@ -8,7 +8,7 @@ public class Bread {
     private double price;
 
     public enum BreadType{
-        White,wheat, rye, wrap
+        White,wheat, rye, wrap;
     }
 
     public Bread(BreadType type, String name, double price) {

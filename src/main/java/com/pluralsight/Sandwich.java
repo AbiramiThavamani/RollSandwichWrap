@@ -79,4 +79,24 @@ public class Sandwich {
 
         return totalPrice;
     }
+
+
+    public String getOrderDetails(){
+        StringBuilder details = new StringBuilder();
+        details.append("size: ").append(sandwichSize.getSize()).append("\n");
+        details.append("Bread:").append(bread.getName()).append("\n");
+        details.append("Toppings:").append("\n");
+
+        for (Topping topping : toppings){
+            details.append("-").append(topping.getName()).append("\n");
+        }
+
+        details.append("Sauces:").append("\n");
+
+        for (Sauce sauce : sauces){
+            details.append("-").append(sauce.getName()).append("\n");
+        }
+
+
+    }
 }

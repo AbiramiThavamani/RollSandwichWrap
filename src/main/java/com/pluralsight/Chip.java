@@ -1,7 +1,5 @@
 package com.pluralsight;
 
-
-
 public class Chip implements OrderItems {
 
     private ChipType type;

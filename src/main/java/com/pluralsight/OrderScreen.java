@@ -224,7 +224,21 @@ public class OrderScreen {
 
     }
 
-    
+    private void checkout(){
+        System.out.println("----YOUR ORDER------");
+        for (OrderItems item : order.getItems()){
+            System.out.println(item.getDetails());
+        }
+
+        System.out.printf("TOTAL PRICE: $%2f\n", order.getTotalPrice());
+        System.out.print("CONFIRM ORDER (YES/NO): ");
+        String choice = scanner.next().toUpperCase();
+        if (choice.equalsIgnoreCase("YES")){
+            String receipt = order.getReceipt();
+            ReceiptManager receiptManager = new ReceiptManager(order);
+            receiptManager.s
+        }
+    }
 
 
 

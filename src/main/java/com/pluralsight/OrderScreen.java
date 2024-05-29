@@ -188,42 +188,27 @@ public class OrderScreen {
 
     }
 
-    
-
-
-    //prompt the user if they want to add sides
-        System.out.println("\nDo you want to add sides? (yes/no): ");
-    String addSidesChoice = scanner.nextLine();
-    boolean addSides = addSidesChoice.equalsIgnoreCase("yes");
-
-
-    // sandwich object
-    Bread breadType;
-        switch(breadChoice)
-
-    {
-        case 1:
-            breadType = Bread.white;
-            break;
-        case 2:
-            breadType = Bread.wheat;
-            break;
-        case 3:
-            breadType = Bread.rye;
-            break;
-        case 4:
-            breadType = Bread.wrap;
-            break;
-        default:
-            System.out.println("Invalid choice");
-            return;
+    private void addDrink(){
+        System.out.println("1. SMALL");
+        System.out.println("2. MEDIUM");
+        System.out.println("3. LARGE");
+        System.out.println("CHOOSE A SIZE: ");
+        int size = scanner.nextInt();
+        DrinkSize drinkSize = DrinkSize.values()[size -1];
+        System.out.println("1.COKE");
+        System.out.println("2. SPRITE");
+        System.out.println("3. TEA");
+        System.out.println("4. JUICE");
+        System.out.println("CHOOSE A DRINK: ");
+        int type = scanner.nextInt();
+        DrinkType drinkType = DrinkType.values()[type -1];
+        Drink drink = new Drink(drinkSize,drinkType);
+        order.addOrder(drink);
+        System.out.println("\n added" + drinkSize + " " + drinkType);
     }
 
 
-}
 
 
-
-}
 
         }

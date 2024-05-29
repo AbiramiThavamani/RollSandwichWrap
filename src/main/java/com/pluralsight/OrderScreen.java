@@ -236,12 +236,13 @@ public class OrderScreen {
         if (choice.equalsIgnoreCase("YES")){
             String receipt = order.getReceipt();
             ReceiptManager receiptManager = new ReceiptManager(order);
-            receiptManager.s
+            receiptManager.saveToFile(receipt);
+            order.clear();
+        } else if (choice.equalsIgnoreCase("NO")) {
+            System.out.println("\n ORDER CANCELLED");
+
         }
     }
+    
 
-
-
-
-
-        }
+}

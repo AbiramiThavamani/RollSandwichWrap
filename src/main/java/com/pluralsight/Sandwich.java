@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-import java.lang.reflect.Type;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +51,7 @@ public class Sandwich implements OrderItems{
     @Override
     public String getDetails(){
         return "SIZE: " + size.getInches() + "\n"
-                + "BREAD: " + Type.getName() + "\n"
+                + "BREAD: " + type.getName() + "\n"
                 +"TOPPINGS: " + toppings + "\n"
                 + "SAUCES: " + sauces + "\n"
                 +"TOASTED:" + (toasted ? "YES" : "NO");

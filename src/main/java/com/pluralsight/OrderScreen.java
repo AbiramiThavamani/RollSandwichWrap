@@ -3,7 +3,7 @@ package com.pluralsight;
 import java.util.Scanner;
 
 public class OrderScreen {
-     static Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     private Order order;
     private Topping topping;
 
@@ -31,16 +31,12 @@ public class OrderScreen {
 
                 case 1:
                     addSandwich();
-                    break;
                 case 2:
                     addDrink();
-                    break;
                 case 3:
                     addChips();
-                    break;
                 case 4:
                     checkout();
-                    break;
                 case 0:
                     System.out.println("\n Cancel order");
                     exit = true;
@@ -74,7 +70,8 @@ public class OrderScreen {
         System.out.println("3. 12");
         System.out.println("CHOOSE A SIZE: ");
         int size = scanner.nextInt();
-        SandwichSize sandwichSize = SandwichSize.values()[size - 1];
+        SandwichSize sandwichSize;
+        sandwichSize = SandwichSize.values()[size - 1];
         Sandwich sandwich1 = new Sandwich(sandwichBread, sandwichSize);
         scanner.nextLine();
 
@@ -150,8 +147,8 @@ public class OrderScreen {
             if (topping == 0) {
                 done = true;
             } else {
-                Topping topping1 = Topping.values()[topping - 1];
-                Sandwich.addTopping(topping1);
+                Topping freeTopping = Topping.values()[topping - 1];
+                Sandwich.addTopping(freeTopping);
             }
 
         }
@@ -188,13 +185,13 @@ public class OrderScreen {
 
     }
 
-    private void addDrink(){
+    private void addDrink() {
         System.out.println("1. SMALL");
         System.out.println("2. MEDIUM");
         System.out.println("3. LARGE");
         System.out.println("CHOOSE A SIZE: ");
         int size = scanner.nextInt();
-        DrinkSize drinkSize = DrinkSize.values()[size -1];
+        DrinkSize drinkSize = DrinkSize.values()[size - 1];
         scanner.nextLine();
         System.out.println("--ADD DRINK--");
         System.out.println("1.COKE");
@@ -204,13 +201,13 @@ public class OrderScreen {
         System.out.println("CHOOSE A DRINK TYPE: ");
         int type = scanner.nextInt();
         scanner.nextLine();
-        DrinkType drinkType = DrinkType.values()[type -1];
-        Drink drink = new Drink(drinkSize,drinkType);
+        DrinkType drinkType = DrinkType.values()[type - 1];
+        Drink drink = new Drink(drinkSize, drinkType);
         order.addOrder(drink);
         System.out.println("\n added" + drinkSize + " " + drinkType);
     }
 
-    private void addChips(){
+    private void addChips() {
         System.out.println("----CHIPS----");
         System.out.println("1.JALAPENO");
         System.out.println("2. SEASALT");
@@ -220,31 +217,35 @@ public class OrderScreen {
 
         int type = scanner.nextInt();
         scanner.nextLine();
-        ChipType chipType = ChipType.values()[type -1];
+        ChipType chipType = ChipType.values()[type - 1];
         Chip chip = new Chip(chipType);
         order.addOrder(chip);
         System.out.println("\n added" + chipType + "CHIPS");
 
     }
 
-    private void checkout(){
-        System.out.println("----YOUR ORDER------");
-        for (OrderItems item : order.getItems()){
+    boolean checkout() {
+        System.out.println("----CHECKOUT------");
+        for (OrderItems item : order.getItems()) {
             System.out.println(item.getDetails());
         }
 
         System.out.printf("TOTAL PRICE: $%2f\n", order.getTotalPrice());
+        Scanner scanner = new Scanner(System.in);
         System.out.print("CONFIRM ORDER (YES/NO): ");
         String choice = scanner.next().toUpperCase();
-        if (choice.equalsIgnoreCase("YES")){
+        if (choice.equalsIgnoreCase("YES")) {
             String receipt = order.getReceipt();
+
             ReceiptManager receiptManager = new ReceiptManager(order);
             receiptManager.saveToFile(receipt);
             order.clear();
         } else if (choice.equalsIgnoreCase("NO")) {
             System.out.println("\n ORDER CANCELLED");
+            return false;
 
         }
+        return true;
     }
 
 

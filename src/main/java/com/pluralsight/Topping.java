@@ -3,18 +3,6 @@ package com.pluralsight;
 
 public enum Topping {
 
-
-    //Includedtoppings
-    LETTUCE("Lettuce",ToppingType.REGULAR,0.00),
-    PEPPER("Pepper",ToppingType.REGULAR,0.00),
-    ONIONS("Onions",ToppingType.REGULAR,0.00),
-    TOMATOES("Tomatoes",ToppingType.REGULAR,0.00),
-    JALAPENOS("Jalapenos",ToppingType.REGULAR,0.00),
-    CUCUMBERS("Cucumbers",ToppingType.REGULAR,0.00),
-    PICKLES("Pickles",ToppingType.REGULAR,0.00),
-    GUACAMOLE("Guacamole",ToppingType.REGULAR,0.00),
-    MUSHROOMS("Mushrooms",ToppingType.REGULAR,0.00),
-
     //meatToppings
     STEAK("Steak",ToppingType.MEAT,1.00),
     HAM("Ham",ToppingType.MEAT,1.00),
@@ -27,9 +15,18 @@ public enum Topping {
     AMERICAN("American",ToppingType.CHEESE,0.75),
     PROVOLONE("provolone",ToppingType.CHEESE,0.75),
     CHEDDAR("Cheddar",ToppingType.CHEESE,0.75),
-    SWISS("Swiss",ToppingType.CHEESE,0.75);
+    SWISS("Swiss",ToppingType.CHEESE,0.75),
 
-
+    //Includedtoppings
+    LETTUCE("Lettuce",ToppingType.REGULAR,0.00),
+    PEPPER("Pepper",ToppingType.REGULAR,0.00),
+    ONION("Onion",ToppingType.REGULAR,0.00),
+    TOMATOES("Tomatoes",ToppingType.REGULAR,0.00),
+    JALAPENOS("Jalapenos",ToppingType.REGULAR,0.00),
+    CUCUMBERS("Cucumbers",ToppingType.REGULAR,0.00),
+    PICKLES("Pickles",ToppingType.REGULAR,0.00),
+    GUACAMOLE("Guacamole",ToppingType.REGULAR,0.00),
+    MUSHROOMS("Mushrooms",ToppingType.REGULAR,0.00);
 
     private String name;
     private ToppingType type;
@@ -50,10 +47,10 @@ public enum Topping {
                price *= 1.00;
 
            } else if (size == SandwichSize.EIGHT) {
-               price *= 2.0;
+               price *= 2.00;
 
            } else if (size == SandwichSize.TWELVE) {
-               price *= 3.0;
+               price *= 3.00;
 
            }
            return price;

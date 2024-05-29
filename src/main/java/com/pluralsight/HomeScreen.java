@@ -9,7 +9,7 @@ public class HomeScreen {
         boolean exit = false;
 
         while (!exit){
-            System.out.println("-------SANDWICH SHOP-----");
+            System.out.println("-------WELCOME TO ROLL SANDWICH WRAP -----");
             System.out.println("1. NEW ORDER");
             System.out.println("0. EXIT");
 
@@ -24,12 +24,11 @@ public class HomeScreen {
                     break;
                 case 0:
                     System.out.println("EXIT THANK YOU!");
-                    exit = true;
-                    break;
+                   return;
                 default:
                     System.out.println("Invalid option ");
             }
-            
+
         }
     }
 }

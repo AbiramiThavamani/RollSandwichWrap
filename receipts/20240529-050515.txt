@@ -1,0 +1,5 @@
+Order Details: 
+Drink: MEDIUM JUICE
+Chips: Spicy
+
+Total price: 4.0

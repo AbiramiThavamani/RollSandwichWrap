@@ -1,11 +1,12 @@
 package com.pluralsight;
 
-import java.io.BufferedWriter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -24,7 +25,7 @@ public class ReceiptManager {
         String filePath = directoryPath + "/" + fileName;
 
         // create directory if it does not exist
-        Path directoryPathOb = Path.get(directoryPath);
+        Path directoryPathOb = Paths.get(directoryPath);
         boolean directoryExists = Files.exists(directoryPathOb);
         if (!directoryExists){
             try {

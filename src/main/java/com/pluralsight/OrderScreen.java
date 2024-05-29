@@ -89,7 +89,7 @@ public class OrderScreen {
         int meat = scanner.nextInt();
         if (meat > 0){
             Topping meatTopping = Topping.values()[meat - 1];
-            sandwich.addTopping(meatTopping);
+            Sandwich.addTopping(meatTopping);
         } else if (meat == 0) {
             System.out.println("No Meat");
 
@@ -103,35 +103,70 @@ public class OrderScreen {
 
           }
 
+        System.out.println("----CHEESE-----");
+        System.out.println("7. AMERICAN" );
+        System.out.println("8. PROVOLONE");
+        System.out.println("9. CHEDDAR");
+        System.out.println("10. SWISS");
+        System.out.println("CHOOSE A CHEESE: ");
+        int cheese = scanner.nextInt();
+        Topping cheeseTopping = Topping.values()[cheese -1];
+        Sandwich.addTopping(cheeseTopping);
+
+        // prompt the user if they want extra cheese
+        System.out.print("WOULD YOU LIKE EXTRA CHEESE ? (YES/NO): ");
+        String extraCheese = scanner.next().toUpperCase();
+       if (extraCheese.equalsIgnoreCase("yes")){
+           Extras choice = new Extras (ExtraChoice.EXTRA_CHEESE, sandwichSize);
+           order.addOrder(choice);
+       }
+
+        // prompt the user if they want sandwich toasted
+        System.out.print("WOULD YOU LIKE IT TOASTED ? (YES/NO):");
+        boolean choice = Boolean.parseBoolean(scanner.next());
+        if (choice){
+            sandwich1.setToasted(true);
+        }
+        boolean done = false;
+        while (!done){
+
+            // prompt the user for toppings
+
+            System.out.println("-----VEGETABLE------");
+            System.out.println("11. LETTUCE");
+            System.out.println("12. PEPPER");
+            System.out.println("13. ONION");
+            System.out.println("14. TOMATOES");
+            System.out.println("15. JALAPENOS");
+            System.out.println("16. CUCUMBER");
+            System.out.println("17. PICKLES");
+            System.out.println("18. GUACAMOLE");
+            System.out.println("19. MUSHROOMS");
+            System.out.println("0. DONE WITH TOPPINGS");
+            System.out.println("CHOOSE TOPPINGS: ");
+
+            int topping = scanner.nextInt();
+            if (topping == 0){
+                done = true;
+            }
+
+
+        }
 
 
 
-        // prompt the user for toppings
-        System.out.println("Select Toppings: \n" + ",");
-        System.out.println("-----VEGETABLE------\n");
-        System.out.println("1. -lettuce\n" +
-                           "2. -peppers\n" +
-                           "3. -onions\n" +
-                           "4. -tomatoes\n" +
-                           "5. -jalapenos\n" +
-                           "6. -cucumber\n" +
-                           "7. -pickles\n" +
-                           "8. -guacamole\n" +
-                           "9. -mushrooms\n");
-
-        int topping = scanner.nextInt();
-        scanner.nextLine();
 
 
 
-        System.out.println("----CHEESE-----\n");
-        System.out.println("1. -american cheese\n" +
-                           "2. -provolone cheese\n" +
-                           "3. -cheddar cheese\n" +
-                           "4. -swiss cheese\n");
 
-        String toppingsInput = scanner.nextLine();
-        String[] toppingsArray = toppingsInput.split(",");
+
+
+
+
+
+
+
+
 
 
         // prompt the user for sauces
@@ -146,15 +181,8 @@ public class OrderScreen {
         String saucesInput = scanner.nextLine();
         String[] saucesArray = saucesInput.split(",");
 
-        // prompt the user if they want sandwich toasted
-        System.out.print("\nWould you like sandwich toasted? (yes/no):");
-        String toastedChoice = scanner.nextLine();
-        boolean toasted = toastedChoice.equalsIgnoreCase("yes");
 
-        // prompt the user if they want extra cheese
-        System.out.print("\nDo you want extra cheese? (yes/no): ");
-        String extraCheeseChoice = scanner.nextLine();
-        boolean extraCheese = extraCheeseChoice.equalsIgnoreCase("yes");
+
 
 
 

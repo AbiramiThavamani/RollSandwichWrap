@@ -1,0 +1,5 @@
+Order Details: 
+Drink: LARGE TEA
+Chips: Sea salt
+
+Total price: 4.5

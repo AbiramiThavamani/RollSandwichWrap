@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Order {
 
     private List<Sandwich> sandwiches;
-    private List<Drinks> drinks;
+    private List<Drink> drinks;
     private List<Chip> chips;
     private List<OrderItems> items;
 
 
-    public Order(List<Sandwich> sandwiches, List<Drinks> drinks, List<Chip> chips, List<OrderItems> items) {
+    public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips, List<OrderItems> items) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;

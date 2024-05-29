@@ -1,33 +1,24 @@
 package com.pluralsight;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class OrderScreen {
+    Scanner scanner = new Scanner(System.in);
+    private Order order;
 
-    private List<Sandwich> sandwiches;
-    private List<Drink> drinks;
-    private List<Chip> chips;
-    private List<OrderItems> items;
-
-
-    public OrderScreen(List<Sandwich> sandwiches, List<Drink> drinks, List<Chip> chips, List<OrderItems> items) {
-        this.sandwiches = sandwiches;
-        this.drinks = drinks;
-        this.chips = chips;
-        this.items = items;
+    public OrderScreen(Order order) {
+        this.order = order;
     }
 
-    public void display() {
-        Scanner scanner = new Scanner(System.in);
+    public void orderScreen() {
+      boolean exit = false;
 
-        while (true) {
+        while (!exit) {
             System.out.println(" *-*-*-*-*- Order Screen *-*-*-*-*");
             System.out.println("1. Add Sandwich");
             System.out.println("2. Add Drink");
             System.out.println("3. Add Chips");
             System.out.println("4. CheckOut");
-            System.out.println("5. Return to Home Screen");
             System.out.println("0. Cancel Order");
             System.out.println("Enter your choice: ");
 
@@ -49,12 +40,9 @@ public class OrderScreen {
                 case 4:
                     checkout();
                     break;
-                case 5:
-                    return;
                 case 0:
-                    cancelOrder();
-                    return;
-
+                    System.out.println("\n Cancel order");
+                  exit = true;
                 default:
                     System.out.println("Invalid choice");
 
@@ -64,19 +52,18 @@ public class OrderScreen {
 
     }
 
-    public void addSandwich() {
-        Scanner scanner = new Scanner(System.in);
+    private void addSandwich() {
 
         // prompt the user for sandwich details
         System.out.println("Add sandwich");
-        System.out.println("\nselect bread type: \n" +
-                           "(only type the number)\n" +
-                           "1. white\n" +
-                           "2. Wheat\n" +
-                           "3. rye\n" +
-                           "4. wrap\n");
+        System.out.println("1. WHITE");
+        System.out.println("2. WHEAT");
+        System.out.println("3. RYE");
+        System.out.println("4. WRAP");
 
-        int breadChoice = scanner.nextInt();
+        System.out.println("CHOOSE A BREAD: ");
+        int bread = scanner.nextInt();
+        
         scanner.nextLine();
 
         System.out.println("Enter sandwich size: \n" + "(" +
@@ -183,14 +170,6 @@ public class OrderScreen {
 
 
 
-
-
-
-
-
-
-
-
-    }
+}
 
 }

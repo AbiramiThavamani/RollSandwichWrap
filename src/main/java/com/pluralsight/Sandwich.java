@@ -3,107 +3,64 @@ package com.pluralsight;
 import com.pluralsight.interfaces.Sauce;
 import com.pluralsight.interfaces.Topping;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Sandwich {
+public class Sandwich implements OrderItems{
 
-    private List<Topping> toppings;
-    private List<Sauce> sauces;
-    private String bread;
-    private  int sandwichSize  ;
+    private static List<Topping> toppings;
+    private static  List<Sauce> sauces;
+    private SandwichBread type;
+    private SandwichSize  size;
     private boolean toasted;
-    private final int size;
 
-    public Sandwich(List<Topping> toppings, List<Sauce> sauces, String bread, int sandwichSize, boolean toasted, int size) {
-        this.toppings = toppings;
-        this.sauces = sauces;
-        this.bread = bread;
-        this.sandwichSize = sandwichSize;
-        this.toasted = toasted;
+    public Sandwich(SandwichBread type, SandwichSize size) {
+        this.type = type;
         this.size = size;
+        toppings = new ArrayList<>();
+        sauces = new ArrayList<>();
+        this.toasted = false;
     }
 
-    public List<Topping> getToppings() {
-        return toppings;
+    public SandwichBread getType() {
+        return type;
     }
 
-    public void setToppings(List<Topping> toppings) {
-        this.toppings = toppings;
-    }
-
-    public List<Sauce> getSauces() {
-        return sauces;
-    }
-
-    public void setSauces(List<Sauce> sauces) {
-        this.sauces = sauces;
-    }
-
-    public String getBread() {
-        return bread;
-    }
-
-    public void setBread(String bread) {
-        this.bread = bread;
-    }
-
-    public int getSandwichSize() {
-        return sandwichSize;
-    }
-
-    public void setSandwichSize(int sandwichSize) {
-        this.sandwichSize = sandwichSize;
-    }
-
-    public boolean isToasted() {
-        return toasted;
-    }
-
-    public void setToasted(boolean toasted) {
-        this.toasted = toasted;
-    }
-
-    public int getSize() {
+    public SandwichSize getSize() {
         return size;
     }
 
-    public void addTopping(Topping topping){
+    public static void addTopping(Topping topping){
         toppings.add(topping);
     }
 
-    public void addSauce(Sauce sauce){
+    public static void addSauce(Sauce sauce){
         sauces.add(sauce);
     }
 
+
+     @Override
     public double getPrice(){
-        double totalPrice = bread.getPrice();
+        double totalPrice = size.getPrice();
 
         for (Topping topping : toppings){
-            totalPrice += topping.getPrice(sandwichSize);
+            totalPrice += topping.getPrice(size);
         }
 
         return totalPrice;
     }
 
-
-    public String getOrderDetails(){
-        StringBuilder details = new StringBuilder();
-        details.append("size: ").append(sandwichSize.getSize()).append("\n");
-        details.append("Bread:").append(bread.getName()).append("\n");
-        details.append("Toppings:").append("\n");
-
-        for (Topping topping : toppings){
-            details.append("-").append(topping.getName()).append("\n");
-        }
-
-        details.append("Sauces:").append("\n");
-
-        for (Sauce sauce : sauces){
-            details.append("-").append(sauce.getName()).append("\n");
-        }
-
-        details.append("Toasted:").append(toasted ? "yes" : "no").append("\n");
-        return details.toString();
+    @Override
+    public String getDetails(){
+        return "SIZE: " + size.getInches() + "\n"
+                + "BREAD: " + Type.getName() + "\n"
+                +"TOPPINGS: " + toppings + "\n"
+                + "SAUCES: " + sauces + "\n"
+                +"TOASTED:" + (toasted ? "YES" : "NO");
     }
 
+    public void setToasted(boolean toasted){
+        this.toasted = toasted;
+    }
 }

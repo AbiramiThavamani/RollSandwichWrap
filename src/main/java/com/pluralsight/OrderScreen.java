@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import com.pluralsight.interfaces.Topping;
+
 import java.util.Scanner;
 
 public class OrderScreen {
@@ -55,7 +57,7 @@ public class OrderScreen {
     private void addSandwich() {
 
         // prompt the user for sandwich details
-        System.out.println("Add sandwich");
+        System.out.println("-----SANDWICH BREAD----");
         System.out.println("1. WHITE");
         System.out.println("2. WHEAT");
         System.out.println("3. RYE");
@@ -63,15 +65,46 @@ public class OrderScreen {
 
         System.out.println("CHOOSE A BREAD: ");
         int bread = scanner.nextInt();
-        
+        SandwichBread sandwichBread = SandwichBread.values()[bread -1];
+        scanner.nextLine();
+        System.out.println("-----SANDWICH SIZE------");
+        System.out.println("1. 4");
+        System.out.println("2. 8");
+        System.out.println("3. 12");
+        System.out.println("CHOOSE A SIZE: ");
+        int size = scanner.nextInt();
+        SandwichSize sandwichSize = SandwichSize.values()[size - 1];
+        Sandwich sandwich1 = new Sandwich(sandwichBread,sandwichSize);
         scanner.nextLine();
 
-        System.out.println("Enter sandwich size: \n" + "(" +
-                "1. 4" +
-                "2. 8" +
-                "3. 12 inches): ");
-        int sizeChoice = scanner.nextInt();
-        scanner.nextLine();
+        System.out.println("------MEAT------");
+        System.out.println("1. STEAK");
+        System.out.println("2. HAM");
+        System.out.println("3. SALAMI");
+        System.out.println("4. ROAST BEEF");
+        System.out.println("5. CHICKEN");
+        System.out.println("6. BACON");
+        System.out.println("0. NO MEAT ");
+        System.out.println("CHOOSE A MEAT: ");
+        int meat = scanner.nextInt();
+        if (meat > 0){
+            Topping meatTopping = Topping.values()[meat - 1];
+            sandwich.addTopping(meatTopping);
+        } else if (meat == 0) {
+            System.out.println("No Meat");
+
+        }
+        //prompt the user if the want extra meat
+        System.out.println("WOULD YOU LIKE EXTRA MEAT ? (yes/no): ");
+        String extraChoice = scanner.next().toUpperCase();
+          if (extraChoice.equalsIgnoreCase("yes")){
+              Extras choice = new Extras(ExtraChoise.EXTRA_MEAT, sandwichSize);
+              order.addOrder(choice);
+
+          }
+
+
+
 
         // prompt the user for toppings
         System.out.println("Select Toppings: \n" + ",");
@@ -89,13 +122,6 @@ public class OrderScreen {
         int topping = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("------MEAT------\n");
-        System.out.println("1. -steak\n" +
-                           "2. -ham\n" +
-                           "3. -salami\n" +
-                           "4. -roast beef\n" +
-                           "5. -chicken\n" +
-                           "6. -bacon\n");
 
 
         System.out.println("----CHEESE-----\n");
@@ -130,10 +156,7 @@ public class OrderScreen {
         String extraCheeseChoice = scanner.nextLine();
         boolean extraCheese = extraCheeseChoice.equalsIgnoreCase("yes");
 
-        //prompt the user if the want extra meat
-        System.out.println("\nDo you want extra meat? (yes/no): ");
-        String extraMeatChoice = scanner.nextLine();
-        boolean extraMeat = extraMeatChoice.equalsIgnoreCase("yes");
+
 
         //prompt the user if they want to add sides
         System.out.println("\nDo you want to add sides? (yes/no): ");

@@ -207,6 +207,25 @@ public class OrderScreen {
         System.out.println("\n added" + drinkSize + " " + drinkType);
     }
 
+    private void addChips(){
+        System.out.println("----CHIPS----");
+        System.out.println("1.JALAPENO");
+        System.out.println("2. SEASALT");
+        System.out.println("3.CHEESE");
+        System.out.println("4. SPICY");
+        System.out.println("CHOOSE A CHIP: ");
+
+        int type = scanner.nextInt();
+        scanner.nextLine();
+        ChipType chipType = ChipType.values()[type -1];
+        Chip chip = new Chip(chipType);
+        order.addOrder(chip);
+        System.out.println("\n added" + chipType + "CHIPS");
+
+    }
+
+    
+
 
 
 

@@ -1,8 +1,11 @@
 package com.pluralsight.interfaces;
 
+import com.pluralsight.SandwichSize;
+
 public class RegularTopping implements Topping {
 
      private String name;
+
 
     public RegularTopping(String name) {
         this.name = name;
@@ -12,13 +15,13 @@ public class RegularTopping implements Topping {
         this.name = name;
     }
 
-    @Override
+
     public String getName() {
         return name;
     }
 
     @Override
-    public double getPrice(int sandwichSize) {
+    public double getPrice() {
         return 0;
     }
 

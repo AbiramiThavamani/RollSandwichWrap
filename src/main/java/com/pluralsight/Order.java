@@ -14,6 +14,10 @@ public class Order {
         this.items.add(item);
     }
 
+    public List<OrderItems> getItems() {
+        return items;
+    }
+
     public void removeOrder(OrderItems item){
         this.items.remove(item);
     }

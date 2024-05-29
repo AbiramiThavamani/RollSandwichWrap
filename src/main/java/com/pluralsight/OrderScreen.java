@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.interfaces.Sauce;
 import com.pluralsight.interfaces.Topping;
 
 import java.util.Scanner;
@@ -67,6 +68,8 @@ public class OrderScreen {
         int bread = scanner.nextInt();
         SandwichBread sandwichBread = SandwichBread.values()[bread - 1];
         scanner.nextLine();
+
+
         System.out.println("-----SANDWICH SIZE------");
         System.out.println("1. 4");
         System.out.println("2. 8");
@@ -98,7 +101,7 @@ public class OrderScreen {
         System.out.println("WOULD YOU LIKE EXTRA MEAT ? (yes/no): ");
         String extraChoice = scanner.next().toUpperCase();
         if (extraChoice.equalsIgnoreCase("yes")) {
-            Extras choice = new Extras(ExtraChoise.EXTRA_MEAT, sandwichSize);
+            Extras choice = new Extras(ExtraChoice.EXTRA_MEAT, sandwichSize);
             order.addOrder(choice);
 
         }
@@ -194,12 +197,15 @@ public class OrderScreen {
         System.out.println("CHOOSE A SIZE: ");
         int size = scanner.nextInt();
         DrinkSize drinkSize = DrinkSize.values()[size -1];
+        scanner.nextLine();
+        System.out.println("--ADD DRINK--");
         System.out.println("1.COKE");
         System.out.println("2. SPRITE");
         System.out.println("3. TEA");
         System.out.println("4. JUICE");
-        System.out.println("CHOOSE A DRINK: ");
+        System.out.println("CHOOSE A DRINK TYPE: ");
         int type = scanner.nextInt();
+        scanner.nextLine();
         DrinkType drinkType = DrinkType.values()[type -1];
         Drink drink = new Drink(drinkSize,drinkType);
         order.addOrder(drink);

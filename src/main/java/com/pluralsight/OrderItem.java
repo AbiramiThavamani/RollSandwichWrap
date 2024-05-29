@@ -25,4 +25,8 @@ public abstract class OrderItem {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String getOrderDetails() {
+        return null;
+    }
 }

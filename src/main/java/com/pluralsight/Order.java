@@ -7,40 +7,16 @@ import java.util.Scanner;
 public class Order {
 
     private List<Sandwich> sandwiches;
-    private List<Drink> drinks;
+    private List<Drinks> drinks;
     private List<Chips> chips;
-    //private List<OrderItem> items;
+    private List<OrderItem> items;
 
 
-    public Order(List<Sandwich> sandwiches, List<Drink> drinks, List<Chips> chips) {
+    public Order(List<Sandwich> sandwiches, List<Drinks> drinks, List<Chips> chips, List<OrderItem> items) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
-      //  items = new ArrayList<>();
-    }
-
-    public List<Sandwich> getSandwiches() {
-        return sandwiches;
-    }
-
-    public void setSandwiches(List<Sandwich> sandwiches) {
-        this.sandwiches = sandwiches;
-    }
-
-    public List<Drink> getDrinks() {
-        return drinks;
-    }
-
-    public void setDrinks(List<Drink> drinks) {
-        this.drinks = drinks;
-    }
-
-    public List<Chips> getChips() {
-        return chips;
-    }
-
-    public void setChips(List<Chips> chips) {
-        this.chips = chips;
+        this.items = items;
     }
 
     public void display() {
@@ -72,7 +48,7 @@ public class Order {
                     addChips();
                     break;
                 case 4:
-                    checkOut();
+                    checkout();
                     break;
                 case 5:
                     return;
@@ -104,37 +80,43 @@ public class Order {
         int breadChoice = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Enter sandwich size: \n" + "(4,8, or 12 inches): ");
+        System.out.println("Enter sandwich size: \n" + "(" +
+                "1. 4" +
+                "2. 8" +
+                "3. 12 inches): ");
         int sizeChoice = scanner.nextInt();
         scanner.nextLine();
 
         // prompt the user for toppings
         System.out.println("Select Toppings: \n" + ",");
         System.out.println("-----VEGETABLE------\n");
-        System.out.println(" -lettuce\n" +
-                           " -peppers\n" +
-                           " -onions\n" +
-                           " -tomatoes\n" +
-                           " -jalepenos\n" +
-                           " -cucumber\n" +
-                           " -pickles\n" +
-                           " -guacamole\n" +
-                           " -mushrooms\n");
+        System.out.println("1. -lettuce\n" +
+                           "2. -peppers\n" +
+                           "3. -onions\n" +
+                           "4. -tomatoes\n" +
+                           "5. -jalapenos\n" +
+                           "6. -cucumber\n" +
+                           "7. -pickles\n" +
+                           "8. -guacamole\n" +
+                           "9. -mushrooms\n");
+
+        int topping = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("------MEAT------\n");
-        System.out.println("-steak\n" +
-                           "-ham\n" +
-                           "-salami\n" +
-                           "-roast beef\n" +
-                           "-chicken\n" +
-                           "-bacon\n");
+        System.out.println("1. -steak\n" +
+                           "2. -ham\n" +
+                           "3. -salami\n" +
+                           "4. -roast beef\n" +
+                           "5. -chicken\n" +
+                           "6. -bacon\n");
 
 
         System.out.println("----CHEESE-----\n");
-        System.out.println("-american cheese\n" +
-                           "-provolone cheese\n" +
-                           "-cheddar cheese\n" +
-                           "-swiss cheese\n");
+        System.out.println("1. -american cheese\n" +
+                           "2. -provolone cheese\n" +
+                           "3. -cheddar cheese\n" +
+                           "4. -swiss cheese\n");
 
         String toppingsInput = scanner.nextLine();
         String[] toppingsArray = toppingsInput.split(",");
@@ -142,12 +124,12 @@ public class Order {
 
         // prompt the user for sauces
         System.out.println("Select sauces:\n" + "," +
-                           "-mayo\n" +
-                           "-mustard\n" +
-                           "-ketchup\n" +
-                           "-ranch\n" +
-                           "-thousand islands\n" +
-                           "-vinaigrette\n");
+                           "1. -mayo\n" +
+                           "2. -mustard\n" +
+                           "3. -ketchup\n" +
+                           "4. -ranch\n" +
+                           "5. -thousand islands\n" +
+                           "6. -vinaigrette\n");
 
         String saucesInput = scanner.nextLine();
         String[] saucesArray = saucesInput.split(",");

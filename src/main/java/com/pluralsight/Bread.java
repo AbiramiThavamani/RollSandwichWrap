@@ -2,26 +2,22 @@ package com.pluralsight;
 
 public class Bread {
 
-    private BreadType type;
+    private Bread type;
 
     private String name;
     private double price;
 
-    public enum BreadType{
-        White,wheat, rye, wrap;
-    }
-
-    public Bread(BreadType type, String name, double price) {
+    public Bread(Bread type, String name, double price) {
         this.type = type;
         this.name = name;
         this.price = price;
     }
 
-    public BreadType getType() {
+    public Bread getType() {
         return type;
     }
 
-    public void setType(BreadType type) {
+    public void setType(Bread type) {
         this.type = type;
     }
 

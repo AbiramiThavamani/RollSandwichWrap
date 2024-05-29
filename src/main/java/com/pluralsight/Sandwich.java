@@ -3,7 +3,6 @@ package com.pluralsight;
 import com.pluralsight.interfaces.Sauce;
 import com.pluralsight.interfaces.Topping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich {
@@ -11,15 +10,17 @@ public class Sandwich {
     private List<Topping> toppings;
     private List<Sauce> sauces;
     private String bread;
-    private int sandwichSize;
+    private  int sandwichSize  ;
     private boolean toasted;
+    private final int size;
 
-    public Sandwich(  String bread, int sandwichSize) {
-        this.toppings = new ArrayList<>();
-        this.sauces = new ArrayList<>();
+    public Sandwich(List<Topping> toppings, List<Sauce> sauces, String bread, int sandwichSize, boolean toasted, int size) {
+        this.toppings = toppings;
+        this.sauces = sauces;
         this.bread = bread;
         this.sandwichSize = sandwichSize;
-        this.toasted = false;
+        this.toasted = toasted;
+        this.size = size;
     }
 
     public List<Topping> getToppings() {
@@ -60,6 +61,10 @@ public class Sandwich {
 
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
+    }
+
+    public int getSize() {
+        return size;
     }
 
     public void addTopping(Topping topping){

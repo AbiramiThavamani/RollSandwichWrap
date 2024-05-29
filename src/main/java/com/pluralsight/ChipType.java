@@ -1,10 +1,10 @@
 package com.pluralsight;
 
 public enum ChipType {
-    JALAPENO("jalapeno"),
-    SEASALT("sea salt"),
-    CHEESE("cheese"),
-    SPICY("spicy");
+    JALAPENO("Jalapeno"),
+    SEASALT("Sea salt"),
+    CHEESE("Cheese"),
+    SPICY("Spicy");
 
     private String name;
 

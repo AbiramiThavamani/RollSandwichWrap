@@ -4,22 +4,20 @@ package com.pluralsight;
 
 public class Chip implements OrderItems {
 
-    private int calories;
+    private ChipType type;
 
-
-    public Chip(int calories) {
-        this.calories = calories;
+    public Chip(ChipType type) {
+        this.type = type;
     }
 
-
     @Override
-    public double getPrice(){
+     public double getPrice(){
         return 1.50;
     }
 
     @Override
     public String getDetails(){
-        return "Chips: " + calories.getName();
+        return "Chips: " + type.getName();
     }
 
 

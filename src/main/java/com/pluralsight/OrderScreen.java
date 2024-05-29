@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import com.pluralsight.interfaces.Sauce;
 import com.pluralsight.interfaces.Topping;
 
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class OrderScreen {
     }
 
     public void orderScreen() {
-      boolean exit = false;
+        boolean exit = false;
 
         while (!exit) {
             System.out.println(" *-*-*-*-*- Order Screen *-*-*-*-*");
@@ -44,7 +45,7 @@ public class OrderScreen {
                     break;
                 case 0:
                     System.out.println("\n Cancel order");
-                  exit = true;
+                    exit = true;
                 default:
                     System.out.println("Invalid choice");
 
@@ -65,7 +66,7 @@ public class OrderScreen {
 
         System.out.println("CHOOSE A BREAD: ");
         int bread = scanner.nextInt();
-        SandwichBread sandwichBread = SandwichBread.values()[bread -1];
+        SandwichBread sandwichBread = SandwichBread.values()[bread - 1];
         scanner.nextLine();
         System.out.println("-----SANDWICH SIZE------");
         System.out.println("1. 4");
@@ -74,7 +75,7 @@ public class OrderScreen {
         System.out.println("CHOOSE A SIZE: ");
         int size = scanner.nextInt();
         SandwichSize sandwichSize = SandwichSize.values()[size - 1];
-        Sandwich sandwich1 = new Sandwich(sandwichBread,sandwichSize);
+        Sandwich sandwich1 = new Sandwich(sandwichBread, sandwichSize);
         scanner.nextLine();
 
         System.out.println("------MEAT------");
@@ -87,7 +88,7 @@ public class OrderScreen {
         System.out.println("0. NO MEAT ");
         System.out.println("CHOOSE A MEAT: ");
         int meat = scanner.nextInt();
-        if (meat > 0){
+        if (meat > 0) {
             Topping meatTopping = Topping.values()[meat - 1];
             Sandwich.addTopping(meatTopping);
         } else if (meat == 0) {
@@ -97,38 +98,38 @@ public class OrderScreen {
         //prompt the user if the want extra meat
         System.out.println("WOULD YOU LIKE EXTRA MEAT ? (yes/no): ");
         String extraChoice = scanner.next().toUpperCase();
-          if (extraChoice.equalsIgnoreCase("yes")){
-              Extras choice = new Extras(ExtraChoise.EXTRA_MEAT, sandwichSize);
-              order.addOrder(choice);
+        if (extraChoice.equalsIgnoreCase("yes")) {
+            Extras choice = new Extras(ExtraChoise.EXTRA_MEAT, sandwichSize);
+            order.addOrder(choice);
 
-          }
+        }
 
         System.out.println("----CHEESE-----");
-        System.out.println("7. AMERICAN" );
+        System.out.println("7. AMERICAN");
         System.out.println("8. PROVOLONE");
         System.out.println("9. CHEDDAR");
         System.out.println("10. SWISS");
         System.out.println("CHOOSE A CHEESE: ");
         int cheese = scanner.nextInt();
-        Topping cheeseTopping = Topping.values()[cheese -1];
+        Topping cheeseTopping = Topping.values()[cheese - 1];
         Sandwich.addTopping(cheeseTopping);
 
         // prompt the user if they want extra cheese
         System.out.print("WOULD YOU LIKE EXTRA CHEESE ? (YES/NO): ");
         String extraCheese = scanner.next().toUpperCase();
-       if (extraCheese.equalsIgnoreCase("yes")){
-           Extras choice = new Extras (ExtraChoice.EXTRA_CHEESE, sandwichSize);
-           order.addOrder(choice);
-       }
+        if (extraCheese.equalsIgnoreCase("yes")) {
+            Extras choice = new Extras(ExtraChoice.EXTRA_CHEESE, sandwichSize);
+            order.addOrder(choice);
+        }
 
         // prompt the user if they want sandwich toasted
         System.out.print("WOULD YOU LIKE IT TOASTED ? (YES/NO):");
         boolean choice = Boolean.parseBoolean(scanner.next());
-        if (choice){
+        if (choice) {
             sandwich1.setToasted(true);
         }
         boolean done = false;
-        while (!done){
+        while (!done) {
 
             // prompt the user for toppings
 
@@ -146,81 +147,83 @@ public class OrderScreen {
             System.out.println("CHOOSE TOPPINGS: ");
 
             int topping = scanner.nextInt();
-            if (topping == 0){
+            if (topping == 0) {
                 done = true;
+            } else {
+                Topping topping1 = Topping.values()[topping - 1];
+                Sandwich.addTopping(topping1);
             }
 
-
         }
 
+        boolean loop = false;
+        while (!loop) {
+
+            // prompt the user for sauces
+            System.out.println("----SAUCE----");
+            System.out.println("1. MAYO");
+            System.out.println("2. MUSTARD");
+            System.out.println("3. KETCHUP");
+            System.out.println("4. RANCH");
+            System.out.println("5. THOUSAND ISLAND");
+            System.out.println("6. VINAIGRETTE");
+            System.out.println("7. NO SAUCE");
+            System.out.println("0. DONE WITH SAUCES");
+            System.out.println("CHOOSE SAUCES: ");
+
+            int sauce = scanner.nextInt();
+            scanner.nextLine();
+            if (sauce == 0) {
+                loop = true;
+            } else if (sauce == 7) {
+                System.out.println("\n NO SAUCE");
+                loop = true;
+            } else {
+                Sauce sauces = Sauce.values()[sauce - 1];
+                Sandwich.addSauce(sauces);
+                loop = true;
+            }
+        }
+        order.addOrder(sandwich1);
+
+    }
+
+    
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // prompt the user for sauces
-        System.out.println("Select sauces:\n" + "," +
-                           "1. -mayo\n" +
-                           "2. -mustard\n" +
-                           "3. -ketchup\n" +
-                           "4. -ranch\n" +
-                           "5. -thousand islands\n" +
-                           "6. -vinaigrette\n");
-
-        String saucesInput = scanner.nextLine();
-        String[] saucesArray = saucesInput.split(",");
-
-
-
-
-
-
-        //prompt the user if they want to add sides
+    //prompt the user if they want to add sides
         System.out.println("\nDo you want to add sides? (yes/no): ");
-        String addSidesChoice = scanner.nextLine();
-        boolean addSides = addSidesChoice.equalsIgnoreCase("yes");
+    String addSidesChoice = scanner.nextLine();
+    boolean addSides = addSidesChoice.equalsIgnoreCase("yes");
 
 
-           // sandwich object
-        Bread breadType;
-        switch (breadChoice){
-            case 1:
-                breadType = Bread.white;
-                break;
-            case 2:
-                breadType = Bread.wheat;
-                break;
-            case 3:
-                breadType = Bread.rye;
-                break;
-            case 4:
-                breadType = Bread.wrap;
-                break;
-            default:
-                System.out.println("Invalid choice");
-                return;
-        }
+    // sandwich object
+    Bread breadType;
+        switch(breadChoice)
+
+    {
+        case 1:
+            breadType = Bread.white;
+            break;
+        case 2:
+            breadType = Bread.wheat;
+            break;
+        case 3:
+            breadType = Bread.rye;
+            break;
+        case 4:
+            breadType = Bread.wrap;
+            break;
+        default:
+            System.out.println("Invalid choice");
+            return;
+    }
 
 
-
-
-
-
-        }
+}
 
 
 
 }
 
-}
+        }

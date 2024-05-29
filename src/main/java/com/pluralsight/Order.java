@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,11 +7,11 @@ public class Order {
 
     private List<Sandwich> sandwiches;
     private List<Drinks> drinks;
-    private List<Chips> chips;
-    private List<OrderItem> items;
+    private List<Chip> chips;
+    private List<OrderItems> items;
 
 
-    public Order(List<Sandwich> sandwiches, List<Drinks> drinks, List<Chips> chips, List<OrderItem> items) {
+    public Order(List<Sandwich> sandwiches, List<Drinks> drinks, List<Chip> chips, List<OrderItems> items) {
         this.sandwiches = sandwiches;
         this.drinks = drinks;
         this.chips = chips;
@@ -74,8 +73,8 @@ public class Order {
                            "(only type the number)\n" +
                            "1. white\n" +
                            "2. Wheat\n" +
-                           "3. Rye\n" +
-                           "4. Wrap\n");
+                           "3. rye\n" +
+                           "4. wrap\n");
 
         int breadChoice = scanner.nextInt();
         scanner.nextLine();
@@ -153,6 +152,28 @@ public class Order {
         System.out.println("\nDo you want to add sides? (yes/no): ");
         String addSidesChoice = scanner.nextLine();
         boolean addSides = addSidesChoice.equalsIgnoreCase("yes");
+
+
+           // sandwich object
+        Bread breadType;
+        switch (breadChoice){
+            case 1:
+                breadType = Bread.white;
+                break;
+            case 2:
+                breadType = Bread.wheat;
+                break;
+            case 3:
+                breadType = Bread.rye;
+                break;
+            case 4:
+                breadType = Bread.wrap;
+                break;
+            default:
+                System.out.println("Invalid choice");
+                return;
+        }
+
 
 
 

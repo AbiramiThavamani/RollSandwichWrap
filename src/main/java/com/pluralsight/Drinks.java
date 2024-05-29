@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Drinks extends OrderItem {
+public class Drinks extends OrderItems {
 
     private String size;
     private String name;

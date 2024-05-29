@@ -1,9 +1,7 @@
-package com.pluralsight.interfaces;
+package com.pluralsight;
 
 
-import com.pluralsight.interfaces.Topping;
-
-public enum Sauce implements Topping {
+public enum Sauce implements OrderItems {
     MAYO("Mayo"),  MUSTARD("Mustard"),  KETCHUP("Ketchup"),  RANCH("Ranch"),  THOUSAND_ISLAND("Thousand Island"),  VINAIGRETTE("Vinaigrette");
     private String name;
 
@@ -17,9 +15,10 @@ public enum Sauce implements Topping {
 
     @Override
     public double getPrice() {
-        return 0;
+        return 0.00;
     }
 
+    @Override
     public String getDetails() {
         return "SAUCE:" + getName();
     }

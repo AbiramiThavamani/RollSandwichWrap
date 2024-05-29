@@ -1,8 +1,5 @@
 package com.pluralsight;
 
-import com.pluralsight.interfaces.Sauce;
-import com.pluralsight.interfaces.Topping;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;

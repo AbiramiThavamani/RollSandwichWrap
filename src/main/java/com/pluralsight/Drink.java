@@ -2,19 +2,19 @@ package com.pluralsight;
 
 public class Drink implements OrderItems {
 
-    private String size;
-    private String type;
+    private DrinkSize size;
+    private DrinkType type;
 
-    public Drink(String size, String type) {
+    public Drink(DrinkSize size, DrinkType type) {
         this.size = size;
         this.type = type;
     }
 
-    public String getSize() {
+    public DrinkSize getSize() {
         return size;
     }
 
-    public String getType() {
+    public DrinkType getType() {
         return type;
     }
 

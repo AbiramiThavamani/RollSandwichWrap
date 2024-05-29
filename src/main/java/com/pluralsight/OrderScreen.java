@@ -1,13 +1,11 @@
 package com.pluralsight;
 
-import com.pluralsight.interfaces.Sauce;
-import com.pluralsight.interfaces.Topping;
-
 import java.util.Scanner;
 
 public class OrderScreen {
-    Scanner scanner = new Scanner(System.in);
+     static Scanner scanner = new Scanner(System.in);
     private Order order;
+    private Topping topping;
 
     public OrderScreen(Order order) {
         this.order = order;

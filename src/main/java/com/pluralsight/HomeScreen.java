@@ -9,11 +9,11 @@ public class HomeScreen {
         boolean exit = false;
 
         while (!exit){
-            System.out.println("-------WELCOME TO ROLL SANDWICH WRAP -----");
-            System.out.println("1. NEW ORDER");
+            System.out.println("-----{---%%-----WELCOME TO ROLL SANDWICH WRAP ----%%---}-----");
+            System.out.println("1. NEW ORDER...");
             System.out.println("0. EXIT");
 
-            System.out.print("ENTER OPTION:");
+            System.out.print("\nENTER OPTION:");
             int option = scanner.nextInt();
             scanner.nextLine();
             switch (option){
@@ -23,7 +23,7 @@ public class HomeScreen {
                     orderScreen.orderScreen();
                     break;
                 case 0:
-                    System.out.println("EXIT THANK YOU!");
+                    System.out.println("EXIT THANK YOU FOR YOUR ORDER!");
                    return;
                 default:
                     System.out.println("Invalid option ");

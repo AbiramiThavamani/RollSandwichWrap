@@ -1,12 +1,21 @@
 # Project Title
 
+RollSandwichWrap
 
 
 ## Description of the Project
 
+Sandwich project is based on providing menu to the user, and allow them to add items like sandwich, drink, and chips 
+to their order. application designed for customer sandwich shop. It automates the ordering process
+and provides a customers to what they want to place the sandwich orders in online. 
+Customer can choose the size of their sandwich and select from different types of bread .
+They can customize their sandwich by adding regular toppings as well as other topping meats and cheese.
+Extra toppings come at an additional cost. Customer can specify if they want their sandwich toasted and add drinks and chips to their order 
+Once the user is done with ordering, the details of their order will include  a total price will display. Receipt for order are saved to a text file.
 
 
 ## User Stories
+[click](https://github.com/users/AbiramiThavamani/projects/5/views/1) 
 
 ### Prerequisites
 
@@ -30,14 +39,14 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-
+<img src="sandwich.gif">
 
 ## Future Work
 
 Additional feature to be developed.
-- 
+- In feature add functionality to track the status of sandwich orders
 Improvement of current functionalities.
--
+- In current improvement customer can ratings and reviews sandwiches
 
 ## Resources
 workbook6 https://app.schoology.com/attachment/2926311580/source/365016068d520c2d4d5e7cac7c6a407a.pdf

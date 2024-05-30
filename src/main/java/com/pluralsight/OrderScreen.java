@@ -186,6 +186,7 @@ public class OrderScreen {
     }
 
     private void addDrink() {
+        System.out.println("----DRINK SIZE---");
         System.out.println("1. SMALL");
         System.out.println("2. MEDIUM");
         System.out.println("3. LARGE");
@@ -193,7 +194,7 @@ public class OrderScreen {
         int size = scanner.nextInt();
         DrinkSize drinkSize = DrinkSize.values()[size - 1];
         scanner.nextLine();
-        System.out.println("--ADD DRINK--");
+        System.out.println("-----DRINK TYPE--");
         System.out.println("1.COKE");
         System.out.println("2. SPRITE");
         System.out.println("3. TEA");
@@ -204,15 +205,15 @@ public class OrderScreen {
         DrinkType drinkType = DrinkType.values()[type - 1];
         Drink drink = new Drink(drinkSize, drinkType);
         order.addOrder(drink);
-        System.out.println("\n added" + drinkSize + " " + drinkType);
+        System.out.println("\n added" +" " + drinkSize + " " + drinkType);
     }
 
     private void addChips() {
         System.out.println("----CHIPS----");
         System.out.println("1.JALAPENO");
-        System.out.println("2. SEASALT");
+        System.out.println("2.SEASALT");
         System.out.println("3.CHEESE");
-        System.out.println("4. SPICY");
+        System.out.println("4.SPICY");
         System.out.println("CHOOSE A CHIP: ");
 
         int type = scanner.nextInt();
@@ -220,12 +221,12 @@ public class OrderScreen {
         ChipType chipType = ChipType.values()[type - 1];
         Chip chip = new Chip(chipType);
         order.addOrder(chip);
-        System.out.println("\n added" + chipType + "CHIPS");
+        System.out.println("\n added" +" " + chipType +" "+ "CHIPS");
 
     }
 
     boolean checkout() {
-        System.out.println("----CHECKOUT------");
+        System.out.println("-*------*--*-CHECKOUT--*---*-----*-");
         for (OrderItems item : order.getItems()) {
             System.out.println(item.getDetails());
         }

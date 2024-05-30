@@ -53,7 +53,9 @@ Improvement of current functionalities.
 
 ## Resources
 workbook6 https://app.schoology.com/attachment/2926311580/source/365016068d520c2d4d5e7cac7c6a407a.pdf
+
 workbook2 String loops Array https://app.schoology.com/attachment/2926311503/source/ad7bfe6ddf41e4c168a52c81c3e733e9.pdf
+
 workbook5 https://app.schoology.com/attachment/2926311568/source/9a6075fb731d9f05cf30c5f9f48c3857.pdf
 
 

@@ -44,8 +44,11 @@ Follow these steps to get your application running within IntelliJ IDEA:
 ## Future Work
 
 Additional feature to be developed.
+
 - In feature add functionality to track the status of sandwich orders
+
 Improvement of current functionalities.
+
 - In current improvement customer can ratings and reviews sandwiches
 
 ## Resources

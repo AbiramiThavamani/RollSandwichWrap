@@ -1,0 +1,5 @@
+Order Details: 
+Drink: MEDIUM COKE
+Chips: Sea salt
+
+Total price: 4.0

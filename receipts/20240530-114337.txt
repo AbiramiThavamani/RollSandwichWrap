@@ -1,0 +1,5 @@
+Order Details: 
+Drink: LARGE SPRITE
+Chips: Jalapeno
+
+Total price: 4.5

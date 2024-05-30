@@ -1,0 +1,4 @@
+Order Details: 
+Chips: Cheese
+
+Total price: 1.5

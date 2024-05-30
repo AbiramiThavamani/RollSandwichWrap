@@ -1,11 +1,12 @@
 package com.pluralsight;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class OrderScreen {
     Scanner scanner = new Scanner(System.in);
     private Order order;
-    private Topping topping;
+    private List<Topping> toppings;
 
     public OrderScreen(Order order) {
         this.order = order;

@@ -58,6 +58,9 @@ workbook2 String loops Array https://app.schoology.com/attachment/2926311503/sou
 
 workbook5 https://app.schoology.com/attachment/2926311568/source/9a6075fb731d9f05cf30c5f9f48c3857.pdf
 
+## Class Diagram
+
+![diagram](https://github.com/AbiramiThavamani/RollSandwichWrap/blob/master/Sandwiche.finaldraw.drawio.png)
 
 ## Thanks
 
